@@ -11,6 +11,7 @@ def exceptionHandling():
         # Get next line
         parts = input().split()
         name = parts[0]
+    return
 
 if __name__ == '__main__':
     exceptionHandling()

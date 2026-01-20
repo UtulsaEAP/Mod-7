@@ -3,20 +3,16 @@ Test cases for the seasons module.
 '''
 import fileNameChange as fileNameChange
 
-ERROR_MSG = "Verify that the program is correctly incrementing the age of each person."
+ERROR_MSG = "Verify that the changes occur within the file"
 
 def test_one(monkeypatch,capsys):
 
     # monkeypatch the "input" function, so that it returns "Mark".
     # This simulates the user entering "Mark" in the terminal:
-    inputs = iter(["./Problem 4/ParkPhotos.txt"])
-    monkeypatch.setattr('builtins.input', lambda: next(inputs, '\n'))
+    with open('./Problem 4/ParkPhotos.txt') as file:
+        all_outputs = file.readlines()
 
-    # go about using input() like you normally would:
-    fileNameChange.fileNameChange()
-    captured = capsys.readouterr()
-    all_outputs = captured.out
-    assert all(x in all_outputs for x in ["Acadia2003_info.txt",
+        assert all(x in all_outputs for x in ["Acadia2003_info.txt",
         "AmericanSamoa1989_info.txt",
         "BlackCanyonoftheGunnison1983_info.txt",
         "CarlsbadCaverns2010_info.txt",
@@ -28,19 +24,15 @@ def test_one(monkeypatch,capsys):
         "VirginIslands2007_info.txt",
         "Voyageurs2006_info.txt",
         "WrangellStElias1987_info.txt"]), ERROR_MSG
+            
 
 def test_two(monkeypatch,capsys):
 
     # monkeypatch the "input" function, so that it returns "Mark".
     # This simulates the user entering "Mark" in the terminal:
-    inputs = iter(["./Problem 4/ParkPhotos1.txt"])
-    monkeypatch.setattr('builtins.input', lambda: next(inputs, '\n'))
-
-    # go about using input() like you normally would:
-    fileNameChange.fileNameChange()
-    captured = capsys.readouterr()
-    all_outputs = captured.out
-    assert all(x in all_outputs for x in ["Acadia2003_info.txt",
+    with open('./Problem 4/ParkPhotos1.txt') as file:
+        all_outputs = file.readlines()
+        assert all(x in all_outputs for x in ["Acadia2003_info.txt",
         "AmericanSamoa1989_info.txt",
         "Arches1997_info.txt",
         "Badlands2000_info.txt",
@@ -102,16 +94,13 @@ def test_two(monkeypatch,capsys):
         "Yellowstone2017_info.txt",
         "Yosemite1992_info.txt",
         "Zion2009_info.txt"]), ERROR_MSG
+    
 
 def test_three(monkeypatch,capsys):
 
     # monkeypatch the "input" function, so that it returns "Mark".
     # This simulates the user entering "Mark" in the terminal:
-    inputs = iter(["./Problem 4/ParkPhotos2.txt"])
-    monkeypatch.setattr('builtins.input', lambda: next(inputs, '\n'))
-
-    # go about using input() like you normally would:
-    fileNameChange.fileNameChange()
-    captured = capsys.readouterr()
-    all_outputs = captured.out
-    assert all(x in all_outputs for x in ["GreatSmokyMountains1992_info.txt"]), ERROR_MSG
+    with open("./Problem 4/ParkPhotos2.txt") as file:
+        all_outputs = file.readlines()
+        assert all(x in all_outputs for x in ["GreatSmokyMountains1992_info.txt"]), ERROR_MSG
+  

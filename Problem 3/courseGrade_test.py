@@ -3,7 +3,7 @@ Test cases for the seasons module.
 '''
 import courseGrade as courseGrade
 
-ERROR_MSG = "Verify that the program is correctly incrementing the age of each person."
+ERROR_MSG = "Verify that the program is including tabs and newlines as needed."
 
 def test_one(monkeypatch,capsys):
 

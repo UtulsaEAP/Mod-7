@@ -3,7 +3,7 @@ Test cases for the seasons module.
 '''
 import wordInRange as wordInRange
 
-ERROR_MSG = "Verify that the program is correctly incrementing the age of each person."
+ERROR_MSG = "Ensure the output is inclusive of the start and end words (if they are in the file)."
 
 def test_one(monkeypatch,capsys):
 
